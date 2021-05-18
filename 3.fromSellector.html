@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">image label</label>
+            <input type="image" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <select name="garden">
+            <option selected=>tea</option>
+            <option>cofee</option>
+            <option>me</option>
+        </select>
+        <button type="submit" class="btn btn-primary" disabled>Submit</button>
+        <button type="submit" class="btn btn-primary">butto</button>
+      </form>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+      <script>
+        // $(':button').css('background', 'red');
+        // $(':checkbox + label').css('background', 'red'); //todo 選擇器 ＋ 只能一層
+        // $(':checked ~ label').css('background', 'red');//～ 可以很多層
+        // $(':disabled').css('background', 'red');
+        // $(':enabled').css('background', 'red');
+        // $(':file').css('background', 'red');
+        // $(':focus').css('background', 'red'); //
+        // $(':image').css('background', 'red');
+        // $(':input').css('background', 'red');
+        // $(':password').css('background', 'red');
+        // $(':radio + label').css('background', 'red');
+        // $(':reset').css('background', 'red');
+        // $(':submit').css('background', 'red');
+        // $(':selected').css('background', 'red'); //可以顯示預設選項的文字
+        $(':text').css('background', 'red');//type:text的都選起來
+      </script>
+    
+</body>
+</html>
