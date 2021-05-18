@@ -35,10 +35,11 @@
 
     <script>
         $('.item-002').css('border','1px solid #ccc').parent().css('border','1px solid red');
-        //parent()所有條件相符子元素(只找一層)
+        //parent()所有條件相符父元素(只找一層)
         
         $('.item-002').css('border','1px solid #ccc').closest().css('border','1px solid green');
         //closest（對象）只能是直系血親才行
+        // 往上查找 只要找到符合條件的 就停止
         
         $('.item-002').css('border','1px solid #ccc').parentsUntil('.item-2').css('border','1px solid green');
         //parentsUntil(對象) 選取直到他為止的，不包含對象本人

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Document</title>
+
+    <style>
+        .box{
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 5px;
+        }
+        .border{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="box box1"><img src="./imgs/person1.jpg" alt=""></div>
+            <div class="box box2"><img src="./imgs/person2.jpg" alt=""></div>
+            <div class="box box3"><img src="./imgs/person3.jpg" alt=""></div>
+            <div class="box box4"><img src="./imgs/person4.jpg" alt=""></div>
+            <div class="box box5"><img src="./imgs/person5.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        
+        $('.box1').click(function(){
+            $('.box1').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        })
+        $('.box2').click(function(){
+            $('.box2').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        })
+        $('.box3').click(function(){
+            $('.box3').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        })
+        $('.box4').click(function(){
+            $('.box4').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        })
+        $('.box5').click(function(){
+            $('.box5').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        })
+        
+        
+        // $('.box').click(function(){
+        //     $(this).css('border','5px solid red');
+        // });
+
+
+    </script>
+</body>
+</html>
