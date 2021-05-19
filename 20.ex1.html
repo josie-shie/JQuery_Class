@@ -50,18 +50,18 @@
         // });
         
         
-        $(':checkbox').click(function(){
-            $(this).closest("tr").css("background-color","lightblue");
-        });
-        
-        
         // $(':checkbox').click(function(){
-        //     if($(this).attr("checked")){
-        //         $(this).closest("tr").css("background-color","lightblue");
-        //     }else{
-        //         $(this).closest("tr").css("background-color","#fff");
-        //     }
+        //     $(this).closest("tr").css("background-color","lightblue");
         // });
+        
+        
+        $(':checkbox').click(function(){
+            if($(this).prop("checked")){
+                $(this).closest("tr").css("background-color","lightblue");
+            }else{
+                $(this).closest("tr").css("background-color","white");
+            }
+        });
     </script>
 </body>
 

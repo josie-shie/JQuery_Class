@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* ul {
+            list-style: none;
+            padding: 0;
+        } */
+
+        .wrap {
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        ul.img-wrap {
+            width: 5600px;
+            display: flex;
+            transform: translateX(-800px);
+            height: 100%;
+            transition: .5s;
+        }
+
+        li {
+            flex-shrink: 1;
+            /* flex-basis: 0;
+            flex-grow: 1; */
+            overflow: hidden;
+            height: 100%;
+        }
+
+        li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-dots {
+            /* width: 100%; */
+            display: flex;
+            /* justify-content: center; */
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slider-dots li {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+
+        .left-arrow,
+        .right-arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            /* background-color: #ccc; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .right-arrow {
+            right: 0;
+        }
+
+        .fas {
+            color: rgb(230, 230, 230);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap mt-5">
+        <ul class="list-unstyled img-wrap">
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+            <li><img src="./imgs/slide2.jpg" alt=""></li>
+            <li><img src="./imgs/slide3.jpg" alt=""></li>
+            <li><img src="./imgs/slide4.jpg" alt=""></li>
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+        </ul>
+
+
+        <ul class="list-unstyled slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="left-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="right-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        let nowPage = 0;
+
+        //最初進到這頁顯示第一張
+        $('.slider-dots li').first().css('background', '#fff');
+
+        //hover值得效果
+        $('.slider-dots li').hover(function () {
+            //確定有選取到li的順序 [0,1,2,3,4,5,6,7]
+            console.log('hi ', $(this).index());
+            //點到的頁面＝現在的索引值
+            nowPage = $(this).index();
+            //點到的哪個索引值換成哪一頁
+            // 被 hover 的 li 自己變白色，其他人變無背景。
+            changePage();
+        });
+
+        //下一張效果
+        $('.right-arrow').click(function () {
+            //如果點擊的頁面大於圖片的數量(5)離開函式
+            if (nowPage >= 5) return;
+            //如果點擊的頁面小於圖片的數量(5)執行
+            nowPage++;
+            changePage();
+        })
+
+        //上一張效果
+        $('.left-arrow').click(function () {
+            // console.log('left-arrow');
+            //如果點擊的頁面小於等於-1(第一張圖片)離開
+            if (nowPage <= -1) return;
+            //如果點擊的頁面大於-1(第一張圖片)執行
+            nowPage--;
+            changePage();
+        })
+
+
+        //宣告在外面 離開函式後才可以使用
+        let myInterval;
+       
+        startMyInterval();
+
+        //製造自動輪播效果
+        //setInterval（）單位為每秒千分 
+        function startMyInterval() {
+
+            myInterval = setInterval(() => {
+                //
+                if (nowPage < 4) {
+                    nowPage++;
+                }
+                else {
+                    nowPage = 0;
+                }
+
+                changePage();
+            }, 1000);
+        }
+
+        function changePage() {
+            
+            //點到的哪個索引值換成哪一頁
+            //-800只是結點的位置
+            //const moveX = -800 * nowPage; 
+            // $('.img-wrap').css('transition', '0.5s').css('transform', `translateX(${moveX}px)`);
+            const moveX = -800 * nowPage;
+            //這裡的moveX - 800 是因為老師在後面多新增了照片為了製作無感換頁
+            $('.img-wrap').css('transition', '0.5s').css('transform', `translateX(${moveX - 800}px)`);
+
+            // 被 hover 的 li 自己變白色，其他人變無背景。
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css('background', 'none');
+        }
+
+        //無感換頁 在最後新增一張跟第一張相同的照片 最後一張時'transition', 'none'的移去第一張
+        function changePageQuietly() {
+            const moveX = -800 * nowPage;
+            $('.img-wrap').css('transition', 'none').css('transform', `translateX(${moveX - 800}px)`);
+
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css('background', 'none');
+        }
+
+        //滑鼠移近去自動輪播要停止
+        $('.wrap').mouseenter(function () {
+            clearInterval(myInterval);
+        })
+
+        //滑鼠移出來自動輪播要開始
+        $('.wrap').mouseleave(function () {
+            startMyInterval();
+        });
+
+        //
+        $('.img-wrap').on('transitionend', function () {
+            // console.log('transitionend');
+
+            // if (nowPage <= 4) return;
+            //在最後一頁跳回第一頁時才需要無感換頁
+            if (nowPage >= 5) {
+                nowPage = 0;
+                changePageQuietly();
+            }
+            //在第一頁跳回最後一頁時才需要無感換頁
+            if (nowPage <= -1) {
+                nowPage = 4;
+                changePageQuietly();
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
