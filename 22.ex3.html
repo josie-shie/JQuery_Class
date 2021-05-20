@@ -9,24 +9,33 @@
     <title>Document</title>
 
     <style>
-        .box{
+        img {
+            width: 100%;
             border-radius: 50%;
-            overflow: hidden;
-            margin: 5px;
-        }
-        .border{
-            border: 5px solid red;
+            border: 5px solid transparent;
         }
     </style>
+        
+    
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="box box1"><img src="./imgs/person1.jpg" alt=""></div>
-            <div class="box box2"><img src="./imgs/person2.jpg" alt=""></div>
-            <div class="box box3"><img src="./imgs/person3.jpg" alt=""></div>
-            <div class="box box4"><img src="./imgs/person4.jpg" alt=""></div>
-            <div class="box box5"><img src="./imgs/person5.jpg" alt=""></div>
+            <div class="col">
+                <img src="./imgs/person1.jpg" alt="">
+            </div>
+            <div class="col">
+                <img src="./imgs/person2.jpg" alt="">
+            </div>
+            <div class="col">
+                <img src="./imgs/person3.jpg" alt="">
+            </div>
+            <div class="col">
+                <img src="./imgs/person4.jpg" alt="">
+            </div>
+            <div class="col">
+                <img src="./imgs/person5.jpg" alt="">
+            </div>
         </div>
     </div>
 
@@ -34,26 +43,33 @@
 
     <script>
         
-        $('.box1').click(function(){
-            $('.box1').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
-        })
-        $('.box2').click(function(){
-            $('.box2').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
-        })
-        $('.box3').click(function(){
-            $('.box3').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
-        })
-        $('.box4').click(function(){
-            $('.box4').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
-        })
-        $('.box5').click(function(){
-            $('.box5').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
-        })
+        // $('.box1').click(function(){
+        //     $('.box1').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        // })
+        // $('.box2').click(function(){
+        //     $('.box2').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        // })
+        // $('.box3').click(function(){
+        //     $('.box3').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        // })
+        // $('.box4').click(function(){
+        //     $('.box4').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        // })
+        // $('.box5').click(function(){
+        //     $('.box5').css('border','5px solid tomato').siblings().css('border','5px solid lightblue');
+        // })
         
         
-        // $('.box').click(function(){
-        //     $(this).css('border','5px solid red');
-        // });
+        // 手機沒有 hover 事件，只能改用 click 事件代替
+        $('img').hover(function () {
+            // console.log('hi', $(this));
+            $(this).css('border', '5px solid red').parent().siblings().children().css('border', '5px solid transparent');
+        });
+
+        $('img').click(function () {
+            // console.log('hi', $(this));
+            $(this).css('border', '5px solid red').parent().siblings().children().css('border', '5px solid transparent');
+        });
 
 
     </script>

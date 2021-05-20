@@ -44,24 +44,32 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
+        
+        // //方法一
+        // $(':checkbox').click(function(){
+        //無法使用.attr("checked") 因為attr只是確認他有無這個屬性 無法當成判斷標準
+        //.prop()回傳的是狀態 會回傳布林值
+        //     if($(this).prop("checked")){
+        //         $(this).closest("tr").css("background-color","lightblue");
+        //     }else{
+        //         $(this).closest("tr").css("background-color","white");
+        //     }
+        // });
 
-        // $(':checkbox').click(function(){
-        //     $(this).parent().css("background-color","lightblue");
-        // });
+
+
+        
+         //方法三
+         $(':checkbox').click(function(){
+
+             //全部tr都改成透明
+             $('tr').css('background','transparent');
+
+             //勾選的換顏色
+             $('input:checked').closest("tr").css('background-color','lightblue');
+         });
         
         
-        // $(':checkbox').click(function(){
-        //     $(this).closest("tr").css("background-color","lightblue");
-        // });
-        
-        
-        $(':checkbox').click(function(){
-            if($(this).prop("checked")){
-                $(this).closest("tr").css("background-color","lightblue");
-            }else{
-                $(this).closest("tr").css("background-color","white");
-            }
-        });
     </script>
 </body>
 
