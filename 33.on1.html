@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row mt-5">
+            <button id="add" class="btn btn-dark">ADD</button>
+        </div>
+
+            <p class="mt-3">List</p>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <!-- 目前不存在item3的DOM節點所以目前綁定不到 -->
+            </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        
+
+        
+        
+        //Selector 是後來才產生的時候綁定事件
+        //如果綁定對象是後來靠JQ才新增的就要綁定父層 在指定他的子層
+        $('ul').on('click','li',function(){
+            console.log('li clicked');
+        });
+
+        let index = 3;
+        
+        $('#add').click(function(){
+            //$('ul').append('<li>item 3</li>')
+            $('ul').append(`<li>item ${index++}</li>`)
+        });
+
+
+    </script>
+
+</body>
+</html>
