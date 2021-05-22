@@ -45,10 +45,11 @@
             // console.log('window height:', $(window).height());
             // console.log('%', Math.floor(($(this).scrollTop() / ($('body').height() - $(window).height()))) * 100 + '%');
 
-            const scrollTop = $(this).scrollTop(); //紫色
-            const websiteHeight = $('body').height(); //黃色
-            const windowHeight = $(window).height(); //綠色
+            const scrollTop = $(this).scrollTop(); //拉桿頂點到視窗最上面的距離
+            const websiteHeight = $('body').height(); //網頁全長（）html所有內容
+            const windowHeight = $(window).height(); //可以顯示於視窗的範圍（可視距離）
 
+            //Math.floor強制轉成整數
             const persent = Math.floor((scrollTop / (websiteHeight - windowHeight)) * 100);
             console.log('persent', persent);
             $('.box').css('width', persent + '%');
