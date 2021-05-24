@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            transition: .5s;
+            margin: 10px;
+        }
+
+        .active{
+            background-color: aquamarine;
+        }
+        .active2{
+            background-color: rgb(19, 78, 58);
+        }
+    </style>
+</head>
+<body>
+    <button id="addClass" class="btn-dark">addClass</button>
+    <button id="removeClass" class="btn-dark">removeClass</button>
+    <button id="toggleClass" class="btn-dark">toggleClass</button>
+    <button id="hasClass" class="btn-dark">checkClass</button>
+    <div class="box"></div>
+    <span></span>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#addClass').click(function(){
+            $('.box').addClass('active');
+        });
+        
+        $('#removeClass').click(function(){
+            $('.box').removeClass('active');
+        });
+
+        $('#toggleClass').click(function(){
+            $('.box').toggleClass('active2');
+        });
+        
+        
+        $('#hasClass').click(function(){
+            $('span').text($('.box').hasClass('active'));
+            //hasClass會回傳布林值 可作判斷使用
+            //如果這個box有class(name)就執行
+
+
+        });
+
+    </script>
+</body>
+</html>

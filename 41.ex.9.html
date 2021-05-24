@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+        .fontS{
+            font-size: 0.5rem;
+        }
+        .fontM{
+            font-size: 1rem;
+        }
+        .fontL{
+            font-size: 1.5rem;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="btn-group">
+            <button id="S" class="btn btn-info ">S</button>
+            <button id="M" class="btn btn-info">M</button>
+            <button id="L" class="btn btn-info">L</button>
+        </div>
+        <h1>JQuery</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sunt, sint porro placeat harum, ipsam dolore odit adipisci quis ratione, cumque blanditiis aut repellat hic id tempora voluptas magni tenetur.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $('#S').click(function(){
+            $('p').addClass('fontS')
+            $('p').removeClass('fontM').removeClass('fontL')
+        });
+        $('#M').click(function(){
+            // $('M').addClass('active').siblings().remove('active');
+            $('p').addClass('fontM');
+            $('p').removeClass('fontS').removeClass('fontL');
+        });
+        $('#L').click(function(){
+            $('p').addClass('fontL');
+            $('p').removeClass('fontS').removeClass('fontM');
+        });
+    </script>
+</body>
+</html>
