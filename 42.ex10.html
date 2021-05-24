@@ -11,6 +11,7 @@
             height: 400px;
             background-color: antiquewhite;
             margin: 10px;
+            font: 6px bold;
         }
 
         .color-seletor{
@@ -23,6 +24,7 @@
         }
         .color2{
             background-color: aqua;
+            font: 30px bold;
         }
     </style>
     <title>Document</title>
@@ -31,7 +33,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="color-demo"></div>
+                <div class="color-demo">123</div>
             </div>
             <div class="col-6">
                 <div class="color-sele d-flex">
@@ -46,9 +48,11 @@
     <script>
         $('.color1').click(function(){
             $('.color-demo').toggleClass('color1');
+            console.log('color-demo',$('.color-demo').css('background-color'));
         })
         $('.color2').click(function(){
             $('.color-demo').toggleClass('color2');
+            console.log('color-demo',$('.color-demo').css('background-color'));
         })
     </script>
 

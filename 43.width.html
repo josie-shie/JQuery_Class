@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: rgb(94, 94, 94);
+            padding: 20px;
+            border: 6px solid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <script>
+        $('.box').width();
+        console.log('width',$('.box').width());
+        $('.box').height();
+        console.log('height',$('.box').height());
+        $('.box').innerWidth();
+        console.log('innerWidth',$('.box').innerWidth());
+        $('.box').innerHeight();
+        console.log('nnerHeight',$('.box').innerHeight());
+        $('.box').outerWidth();
+        console.log('outerWidth',$('.box').outerWidth());
+        $('.box').outerHeight();
+        console.log('outerHeight',$('.box').outerHeight());
+    </script>
+    
+    
+</body>
+</html>
