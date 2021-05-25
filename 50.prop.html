@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prop 講的是html屬性的狀態-->
+    <button class="btn btn-primary" id="setProp">set prop</button>
+    <button class="btn btn-primary" id="remove">remove prop</button>
+    <button class="btn btn-primary" id="checkProp">check prop</button>
+    <input type="checkbox" id="check1">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $('#setProp').click(function () {
+            //以下三個屬性是比較能看見效果的
+            // $('#check1').prop('checked', true);
+            // $('#check1').prop('hidden', true);
+            // $('#check1').prop('disabled', true);
+
+            //程式碼不會顯示但是屬性會存在裡面 還是可以呼叫
+            $('#check1').prop('myProp123', 'hello');
+        })
+
+        $('#remove').click(function () {
+            // $('#check1').prop('checked', false);
+            // $('#check1').prop('hidden', false);
+            // $('#check1').prop('disabled', false);
+
+            //程式碼不會顯示但是屬性會存在裡面 也可以移除
+            $('#check1').removeProp('myProp123');
+        })
+
+        $('#checkProp').click(function () {
+            const prop = $('#check1').prop('myProp123');
+            console.log('prop:', prop);
+        })
+
+    </script>
+</body>
+</html>

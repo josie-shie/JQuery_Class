@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate css</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            padding: 10px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+            margin: 20px;
+        }
+    </style>
+    
+</head>
+<body>  
+
+    <div class="wrap">
+        <button>bounce</button>
+        <button>flash</button>
+        <!-- animate__animated是兩個底線 -->
+        <div class="box animate__animated">box</div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $('button').click(function(){
+
+            //$(this)＝button .text()＝bounce 合起來就是animate__bounce
+            let animate = 'animate__' + $(this).text();
+            //animationend只能用one或on綁定 是因為各家瀏覽器前贅字不同
+            //用one可以綁定多個
+            //.one(''webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){})
+
+            $(".box").addClass(animate).one('animationend', function() {
+                $(this).removeClass(animate);
+            });
+
+        });
+
+        
+
+    </script>
+</body>
+</html>
